@@ -11,10 +11,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper(array('form', 'security', 'cookie'));
-		$this->load->model('service');
-		$this->load->model('album');
-		$this->load->model('siteparam');
-		$this->load->model('partner');
+		$this->load->model(['service', 'album', 'siteparam', 'partner']);
 
 		if (get_cookie('lang') && (get_cookie('lang') == 'georgian' || get_cookie('lang') == 'russian' || get_cookie('lang') == 'english')){
 			$this->session->set_userdata('lang', get_cookie('lang'));
