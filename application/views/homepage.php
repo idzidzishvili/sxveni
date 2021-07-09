@@ -4156,7 +4156,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          <section class="center slider">
             <?php foreach($partners as $partner):?>
                <div>
-                  <img src="<?php echo base_url('assets/uploads/partners/'.$partner['filename']);?>">
+                  <a href="<?php echo $partner['url'];?>" target="_blank">
+                     <img src="<?php echo base_url('assets/uploads/partners/'.$partner['filename']);?>">
+                  </a>
                </div>
             <?php endforeach; ?>
          </section>

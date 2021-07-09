@@ -396,6 +396,8 @@ h2 {
     padding: 5px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    z-index: 2;
 }
 
 .header-left .social i {
@@ -792,6 +794,11 @@ h2 {
     height: 36px;
     transition: 0.3s;
 }
+.company-contact a:hover {
+    background: #B33936;
+    color: #ffecde;
+}
+
 
 .portfolio-section h3{
     display:none;
