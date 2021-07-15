@@ -36,6 +36,7 @@
                </div>
             </div>
 
+            
             <div class="form-group row mb-2">
                <label class="col-sm-2 col-form-label"></label>
                <label class="col-sm-2 col-form-label">სურათი GE (img)</label><!-- (img) -->
@@ -76,7 +77,6 @@
                </div>
             </div>
 
-
             <div class="form-group row mb-2">
                <label class="col-sm-2 col-form-label">ალბომი 2</label>
                <div class="col-sm-1 pr0">
@@ -107,7 +107,6 @@
                   <small style="color:red"><?php echo form_error('link2'); ?></small>
                </div>
             </div>
-
 
             <div class="form-group row mb-2">
                <label class="col-sm-2 col-form-label">ალბომი 3</label>
@@ -140,7 +139,6 @@
                </div>
             </div>
 
-
             <div class="form-group row mb-2">
                <label class="col-sm-2 col-form-label">ალბომი 4</label>
                <div class="col-sm-1 pr0">
@@ -172,6 +170,32 @@
                </div>
             </div>
 
+            <?php if($currentService->content_type=='audio'):?>
+               <div class="form-group row mb-2">
+                  <label for="getext" class="col-sm-2 col-form-label">აუდიო 1</label>
+                  <div class="col-sm-10">
+                     <input type="file" name="file_upload[]">
+                  </div>
+               </div>
+               <div class="form-group row mb-2">
+                  <label for="getext" class="col-sm-2 col-form-label">აუდიო 2</label>
+                  <div class="col-sm-10">
+                     <input type="file" name="file_upload[]">
+                  </div>
+               </div>
+               <div class="form-group row mb-2">
+                  <label for="getext" class="col-sm-2 col-form-label">აუდიო 3</label>
+                  <div class="col-sm-10">
+                     <input type="file" name="file_upload[]">
+                  </div>
+               </div>
+               <div class="form-group row mb-2">
+                  <label for="getext" class="col-sm-2 col-form-label">აუდიო 4</label>
+                  <div class="col-sm-10">
+                     <input type="file" name="file_upload[]">
+                  </div>
+               </div>
+            <?php endif;?>
 
             <?php if(!$currentService->issimple): ?>
                <div class="form-group row mb-2">

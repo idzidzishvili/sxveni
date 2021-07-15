@@ -88,7 +88,7 @@ class Admin extends CI_Controller {
 						$filename = 'file'.str_repeat('0', 2-strlen($page)).$page.str_repeat('0', 2-strlen($i+1)).($i+1);
 						$ext = $_FILES['image_upload'.$i]['type'];
 						$search  = array("image/png", "image/jpg", "image/jpeg", "audio/mp3", "video/mp4");
-						$replace = array(".png", 		".jpg", 		 ".jpg", 		".mp3", 		 ".mp4");
+						$replace = array(".png", 		".jpg", 	 ".jpg", 		".mp3", 	 ".mp4");
 						$ext = str_replace($search, $replace, $ext);
 						$filename .= $ext;
 						move_uploaded_file($image_tmp_name, "assets/uploads/".$filename);
@@ -119,16 +119,19 @@ class Admin extends CI_Controller {
 					$link3 = $this->input->post('link3') ? $this->sanitize_youtube_link($this->input->post('link3', true)):null;
 					$link4 = $this->input->post('link4') ? $this->sanitize_youtube_link($this->input->post('link4', true)):null;
 				}
-				if($this->service->updateService($page, $getext, $entext, $rutext, $link1, $link2, $link3, $link4)){
+				if($this->service->updateService2($page, $getext, $entext, $rutext)){
 					array_push($res, array('msg'=>'მონაცემები დაემატა წარმატებით', 'res'=>'1'));
 				}else{
 					array_push($res, array('msg'=>'ვერ მოხერხდა მონაცემების დამატება', 'res'=>'0'));
 				}
 
+
+
+
 				// Upload file or thumbnail from each input file
 				$config['upload_path']   = './assets/uploads/';
 				$config['allowed_types'] = 'jpg|jpeg|png|mp3';
-				// $config['max_size']      = '5000';
+				$config['max_size']      = '15000';
 				// $config['max_width']     = '4096';
 				// $config['max_height']    = '1600';
 				$config['overwrite']     = true;
@@ -148,7 +151,8 @@ class Admin extends CI_Controller {
 								// if ($page==1||$page==3){
 								// 	$this->service->updateFileThumbnail($page, $lang.$i, $newname.'.'.$file_ext);
 								// }else{
-									$this->service->addThumbnail($page, $lang.$i, $newname.'.'.$file_ext);
+									if($currentService->content_type!='audio')
+										$this->service->addThumbnail($page, $lang.$i, $newname.'.'.$file_ext);
 								// }
 							}
 						}
@@ -156,10 +160,11 @@ class Admin extends CI_Controller {
 				}
 				
 				// upload and save multiple input file				
-				if(!$currentService->issimple){
+				if(!$currentService->issimple || $currentService->content_type=='audio'){
 					$this->load->model('album');
 					if(isset($_FILES['file_upload'])){
 						$numFilesUploaded = count($_FILES['file_upload']['name']);
+						//echo $numFilesUploaded;exit;
 						// Album upload					
 						for ($i=0; $i<$numFilesUploaded; $i++) {
 							if($_FILES['file_upload']['name'][$i]){//If not empty file
@@ -168,24 +173,27 @@ class Admin extends CI_Controller {
 								$_FILES['uploadedFiles']['tmp_name'] 	= $_FILES['file_upload']['tmp_name'][$i];
 								$_FILES['uploadedFiles']['error'] 		= $_FILES['file_upload']['error'][$i];
 								$_FILES['uploadedFiles']['size'] 		= $_FILES['file_upload']['size'][$i];
-
+								
 								$file_ext = pathinfo($_FILES['file_upload']['name'][$i], PATHINFO_EXTENSION);
-								$newname = md5(time().uniqid()). '.' .$file_ext;
+								$newname = md5(time().uniqid()).'.'.$file_ext;
 								$config['upload_path'] = './assets/uploads';
 								$config['max_size'] = 12800000;
 								$config['allowed_types'] = 'avi|mp4|mpg|mpeg|jpg|jpeg|png|mp3|vaw';
 								$config['overwrite'] = TRUE;
 								$config['remove_spaces'] = TRUE;
 								$config['file_name'] = $newname ;
-
+								
 								$this->load->library('upload');
 								$this->upload->initialize($config);
-								if ($this->upload->do_upload('uploadedFiles')){
+								if ($this->upload->do_upload('uploadedFiles') /*&& */){
 									array_push($res, array('msg'=>'ფაილი '.$_FILES['file_upload']['name'][$i].' აიტვირთა.', 'res'=>'1'));
+									if ($currentService->content_type!='audio')
 									$this->album->addAlbumData($page, $this->input->post('album_category')[$i], $newname, $_FILES['file_upload']['name'][$i]);
+									else
+									$this->service->updateFilename(3, $i+1, $newname);
 								}else{
 									array_push($res, array('msg'=>'ფაილი '.$_FILES['file_upload']['name'][$i].' ვერ აიტვირთა!', 'res'=>'0'));
-									// var_dump($this->upload->display_errors());
+									//var_dump($this->upload->display_errors());exit;
 								}
 							}//Empty input field, just skip it
 						}

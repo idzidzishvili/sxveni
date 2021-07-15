@@ -18,6 +18,13 @@ class service extends CI_Model
 			array('id' => $id)
 		);
    }
+   public function updateService2($id, $getext, $entext, $rutext){
+      return $this->db->update(
+			'services', 
+			array('text_ge' => $getext, 'text_en' => $entext, 'text_ru' => $rutext), 
+			array('id' => $id)
+		);
+   }
    
    public function updateFilename($id, $n, $filename){
       return $this->db->update(
