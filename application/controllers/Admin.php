@@ -114,12 +114,12 @@ class Admin extends CI_Controller {
 				$rutext = $this->input->post('rutext', true);
 				$link1 = $link2 = $link3 = $link4 = null;
 				if($currentService->content_type=='video' && $currentService->issimple){
-					$link1 = $this->input->post('link1') ? $this->sanitize_youtube_link($this->input->post('link1', true)):null;
-					$link2 = $this->input->post('link2') ? $this->sanitize_youtube_link($this->input->post('link2', true)):null;
-					$link3 = $this->input->post('link3') ? $this->sanitize_youtube_link($this->input->post('link3', true)):null;
-					$link4 = $this->input->post('link4') ? $this->sanitize_youtube_link($this->input->post('link4', true)):null;
+					$link1 = $this->input->post('link1') ? $this->sanitize_youtube_link($this->input->post('link1', true)) : null;
+					$link2 = $this->input->post('link2') ? $this->sanitize_youtube_link($this->input->post('link2', true)) : null;
+					$link3 = $this->input->post('link3') ? $this->sanitize_youtube_link($this->input->post('link3', true)) : null;
+					$link4 = $this->input->post('link4') ? $this->sanitize_youtube_link($this->input->post('link4', true)) : null;
 				}
-				if($this->service->updateService2($page, $getext, $entext, $rutext)){
+				if($this->service->updateService($page, $getext, $entext)){
 					array_push($res, array('msg'=>'მონაცემები დაემატა წარმატებით', 'res'=>'1'));
 				}else{
 					array_push($res, array('msg'=>'ვერ მოხერხდა მონაცემების დამატება', 'res'=>'0'));
