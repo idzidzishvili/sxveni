@@ -9,7 +9,11 @@
 @font-face {
     font-family: 'MarkGEOCAPS-Regular';
     src: url('../fonts/MarkGEOCAPS-Regular.eot');
-    src: url('../fonts/MarkGEOCAPS-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/MarkGEOCAPS-Regular.woff2') format('woff2'), url('../fonts/MarkGEOCAPS-Regular.woff') format('woff'), url('../fonts/MarkGEOCAPS-Regular.ttf') format('truetype'), url('../fonts/MarkGEOCAPS-Regular.svg#MarkGEOCAPS-Regular') format('svg');
+    src: url('../fonts/MarkGEOCAPS-Regular.eot?#iefix') format('embedded-opentype'), 
+        url('../fonts/MarkGEOCAPS-Regular.woff2') format('woff2'), 
+        url('../fonts/MarkGEOCAPS-Regular.woff') format('woff'), 
+        url('../fonts/MarkGEOCAPS-Regular.ttf') format('truetype'), 
+        url('../fonts/MarkGEOCAPS-Regular.svg#MarkGEOCAPS-Regular') format('svg');
     font-weight: normal;
     font-style: italic;
 }
@@ -17,7 +21,11 @@
 @font-face {
     font-family: 'archyedt-bold';
     src: url('../fonts/archyedt-bold.eot');
-    src: url('../fonts/archyedt-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/archyedt-bold.woff2') format('woff2'), url('../fonts/archyedt-bold.woff') format('woff');
+    src: url('../fonts/archyedt-bold.eot?#iefix') format('embedded-opentype'), 
+        url('../fonts/archyedt-bold.woff2') format('woff2'), 
+        url('../fonts/archyedt-bold.woff') format('woff'),
+        url('../fonts/archyedt-bold.ttf') format('truetype'), 
+        url('../fonts/archyedt-bold.svg#archyedt-bold') format('svg');
     font-weight: normal;
     font-style: italic;
 }

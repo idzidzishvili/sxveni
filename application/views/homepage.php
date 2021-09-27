@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>sxveni.ge</title>
+   <title>SKHVENI</title>
    <link rel="shortcut icon" type="image/jpg" href="<?= base_url('assets/images/favicon.ico');?>"/>
    <link rel="stylesheet" href="<?= base_url('assets/css/aos.css');?>">
    <link rel="stylesheet" href="<?= base_url('assets/css/slick.css');?>">

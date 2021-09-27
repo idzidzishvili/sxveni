@@ -119,7 +119,7 @@ class Admin extends CI_Controller {
 					$link3 = $this->input->post('link3') ? $this->sanitize_youtube_link($this->input->post('link3', true)) : null;
 					$link4 = $this->input->post('link4') ? $this->sanitize_youtube_link($this->input->post('link4', true)) : null;
 				}
-				if($this->service->updateService($page, $getext, $entext)){
+				if($this->service->updateService($page, $getext, $entext, $rutext, $link1, $link2, $link3, $link4)){
 					array_push($res, array('msg'=>'მონაცემები დაემატა წარმატებით', 'res'=>'1'));
 				}else{
 					array_push($res, array('msg'=>'ვერ მოხერხდა მონაცემების დამატება', 'res'=>'0'));
