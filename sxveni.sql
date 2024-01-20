@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 15, 2021 at 05:03 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Host: localhost
+-- Generation Time: Jan 20, 2024 at 08:50 AM
+-- Server version: 5.7.33
+-- PHP Version: 8.1.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -79,7 +78,12 @@ INSERT INTO `albums` (`id`, `servicesid`, `albumid`, `filename`, `originalname`)
 (67, 3, 1, 'f8d2304213287c43d2c3ce7eab66f78b.mp3', 'file_34.mp3'),
 (68, 3, 1, '714e6c28f39a026c5373e3e0fd4b2fe4.mp3', 'file_31.mp3'),
 (69, 3, 1, '4673b8d2979b1c361d54dc1b57142128.mp3', 'file_31.mp3'),
-(70, 3, 2, '9f412600c06f6bd2bf78873a871796be.mp3', 'file_32.mp3');
+(70, 3, 2, '9f412600c06f6bd2bf78873a871796be.mp3', 'file_32.mp3'),
+(71, 1, 2, 'cb13397aaf66132f0a674cd35c0df6ac.jpg', '1.jpg'),
+(72, 1, 2, '9100692b9091cf3d11c59b107bb444a2.jpg', '2.jpg'),
+(73, 1, 3, 'd23e19d341d2e9b4bc5b33b80d214413.jpg', '1.jpg'),
+(74, 1, 3, 'ee08a2d10e617bf8fd429e0b7f33c532.jpg', '2.jpg'),
+(75, 1, 3, '7f1687a96d99f262769cb89c11e39299.jpg', '3.jpg');
 
 -- --------------------------------------------------------
 
@@ -252,7 +256,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `partners`

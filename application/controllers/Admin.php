@@ -138,7 +138,7 @@ class Admin extends CI_Controller {
 				$langs = array('ge', 'en', 'ru');
 				for($i=1; $i<=4; $i++){
 					foreach ($langs as $lang){
-						$filename = 'file'.$lang.$i;					
+						$filename = 'file'.$lang.$i;
 						if($_FILES[$filename]['name']){
 							$newname = 'file_'.$lang.$page.$i;
 							$file_ext = pathinfo($_FILES[$filename]['name'], PATHINFO_EXTENSION);

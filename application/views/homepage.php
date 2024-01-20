@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <link rel="stylesheet" href="<?= base_url('assets/css/icofont.min.css');?>">
    <link rel="stylesheet" href="<?= base_url('assets/css/progres-bar.css');?>">
    <link href="https://fonts.googleapis.com/css2?family=Istok+Web&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="<?= base_url('assets/css/style.css');?>" >
+   <link rel="stylesheet" href="<?= base_url('assets/css/style.css?version=1');?>" >
    <link rel="stylesheet" href="<?= base_url('assets/css/mediaqueries.css');?>" >
    </head>
    <body class="<?php echo $lang=='ru'?'ru-font-reg':' geo-en-font-reg'; ?> ">
